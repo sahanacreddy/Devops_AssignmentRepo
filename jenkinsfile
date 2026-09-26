@@ -21,16 +21,40 @@ pipeline {
         }
 
         stage('Start Selenium Grid') {
-            steps {
-                bat '"C:\\Users\\vijay\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker-compose.exe" up -d'
-            }
-        }
+    steps {
+        bat '"C:\\Users\\vijay\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker-compose.exe" up -d'
+
+        bat '''
+        powershell -Command ^
+        "$deadline=(Get-Date).AddSeconds(90); ^
+        do { ^
+            try { ^
+                $response=Invoke-RestMethod -Uri 'http://localhost:4444/status'; ^
+                if ($response.value.ready -eq $true) { ^
+                    Write-Host 'Selenium Grid is READY'; ^
+                    exit 0 ^
+                } ^
+            } catch { ^
+                Write-Host 'Waiting for Selenium Grid...' ^
+            }; ^
+            Start-Sleep -Seconds 3 ^
+        } while ((Get-Date) -lt $deadline); ^
+        Write-Host 'Selenium Grid did not become ready'; ^
+        exit 1"
+        '''
+    }
+}
 
         stage('Run Selenium Tests') {
             steps {
                 bat 'mvn clean test -Dsurefire.suiteXmlFiles=testng.xml'
             }
         }
+        stage('Check Selenium Grid') {
+    steps {
+        bat 'curl http://localhost:4444/status'
+    }
+}
     }
 
     post {
