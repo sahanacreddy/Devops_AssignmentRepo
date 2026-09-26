@@ -2,12 +2,12 @@
 <testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2026-09-26T14:24:37 IST" name="Amazon Cross Browser Suite" finished-at="2026-09-26T14:29:06 IST" duration-ms="268991">
+  <suite started-at="2026-09-26T17:25:41 IST" name="Amazon Cross Browser Suite" finished-at="2026-09-26T17:27:09 IST" duration-ms="87734">
     <groups>
     </groups>
-    <test started-at="2026-09-26T14:24:37 IST" name="Chrome Test" finished-at="2026-09-26T14:28:49 IST" duration-ms="252108">
+    <test started-at="2026-09-26T17:25:41 IST" name="Chrome Test" finished-at="2026-09-26T17:26:57 IST" duration-ms="75498">
       <class name="Devops_Assignment.Devops_Assignment.AmazonTest">
-        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:Devops_Assignment.Devops_Assignment.AmazonTest@4facf68f]" started-at="2026-09-26T14:24:37 IST" name="setup" finished-at="2026-09-26T14:25:19 IST" duration-ms="41480" status="PASS">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:Devops_Assignment.Devops_Assignment.AmazonTest@1725dc0f]" started-at="2026-09-26T17:25:42 IST" name="setup" finished-at="2026-09-26T17:26:11 IST" duration-ms="29584" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -18,42 +18,19 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="amazonSearchTest()[pri:0, instance:Devops_Assignment.Devops_Assignment.AmazonTest@4facf68f]" started-at="2026-09-26T14:25:19 IST" name="amazonSearchTest" finished-at="2026-09-26T14:28:44 IST" duration-ms="205465" status="PASS">
+        <test-method signature="amazonNavigationTest()[pri:0, instance:Devops_Assignment.Devops_Assignment.AmazonTest@1725dc0f]" started-at="2026-09-26T17:26:11 IST" name="amazonNavigationTest" finished-at="2026-09-26T17:26:54 IST" duration-ms="43044" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- amazonSearchTest -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:Devops_Assignment.Devops_Assignment.AmazonTest@4facf68f]" started-at="2026-09-26T14:28:44 IST" name="tearDown" finished-at="2026-09-26T14:28:49 IST" duration-ms="5005" status="PASS">
+        </test-method> <!-- amazonNavigationTest -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:Devops_Assignment.Devops_Assignment.AmazonTest@1725dc0f]" started-at="2026-09-26T17:26:54 IST" name="tearDown" finished-at="2026-09-26T17:26:57 IST" duration-ms="2732" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- Devops_Assignment.Devops_Assignment.AmazonTest -->
     </test> <!-- Chrome Test -->
-    <test started-at="2026-09-26T14:24:37 IST" name="Firefox Test" finished-at="2026-09-26T14:28:59 IST" duration-ms="262493">
+    <test started-at="2026-09-26T17:25:41 IST" name="Edge Test" finished-at="2026-09-26T17:27:02 IST" duration-ms="80511">
       <class name="Devops_Assignment.Devops_Assignment.AmazonTest">
-        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:Devops_Assignment.Devops_Assignment.AmazonTest@52bf72b5]" started-at="2026-09-26T14:24:37 IST" name="setup" finished-at="2026-09-26T14:26:46 IST" duration-ms="128846" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[firefox]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- setup -->
-        <test-method signature="amazonSearchTest()[pri:0, instance:Devops_Assignment.Devops_Assignment.AmazonTest@52bf72b5]" started-at="2026-09-26T14:26:46 IST" name="amazonSearchTest" finished-at="2026-09-26T14:28:39 IST" duration-ms="112654" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- amazonSearchTest -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:Devops_Assignment.Devops_Assignment.AmazonTest@52bf72b5]" started-at="2026-09-26T14:28:39 IST" name="tearDown" finished-at="2026-09-26T14:28:59 IST" duration-ms="20829" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- tearDown -->
-      </class> <!-- Devops_Assignment.Devops_Assignment.AmazonTest -->
-    </test> <!-- Firefox Test -->
-    <test started-at="2026-09-26T14:24:37 IST" name="Edge Test" finished-at="2026-09-26T14:29:06 IST" duration-ms="268989">
-      <class name="Devops_Assignment.Devops_Assignment.AmazonTest">
-        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:Devops_Assignment.Devops_Assignment.AmazonTest@515aebb0]" started-at="2026-09-26T14:24:37 IST" name="setup" finished-at="2026-09-26T14:25:24 IST" duration-ms="47291" status="PASS">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:Devops_Assignment.Devops_Assignment.AmazonTest@6d763516]" started-at="2026-09-26T17:25:41 IST" name="setup" finished-at="2026-09-26T17:26:26 IST" duration-ms="44862" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -64,15 +41,38 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method signature="amazonSearchTest()[pri:0, instance:Devops_Assignment.Devops_Assignment.AmazonTest@515aebb0]" started-at="2026-09-26T14:25:24 IST" name="amazonSearchTest" finished-at="2026-09-26T14:29:04 IST" duration-ms="219376" status="PASS">
+        <test-method signature="amazonNavigationTest()[pri:0, instance:Devops_Assignment.Devops_Assignment.AmazonTest@6d763516]" started-at="2026-09-26T17:26:26 IST" name="amazonNavigationTest" finished-at="2026-09-26T17:26:59 IST" duration-ms="32850" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- amazonSearchTest -->
-        <test-method is-config="true" signature="tearDown()[pri:0, instance:Devops_Assignment.Devops_Assignment.AmazonTest@515aebb0]" started-at="2026-09-26T14:29:04 IST" name="tearDown" finished-at="2026-09-26T14:29:06 IST" duration-ms="2202" status="PASS">
+        </test-method> <!-- amazonNavigationTest -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:Devops_Assignment.Devops_Assignment.AmazonTest@6d763516]" started-at="2026-09-26T17:26:59 IST" name="tearDown" finished-at="2026-09-26T17:27:02 IST" duration-ms="2701" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDown -->
       </class> <!-- Devops_Assignment.Devops_Assignment.AmazonTest -->
     </test> <!-- Edge Test -->
+    <test started-at="2026-09-26T17:25:41 IST" name="Firefox Test" finished-at="2026-09-26T17:27:09 IST" duration-ms="87734">
+      <class name="Devops_Assignment.Devops_Assignment.AmazonTest">
+        <test-method is-config="true" signature="setup(java.lang.String)[pri:0, instance:Devops_Assignment.Devops_Assignment.AmazonTest@6b81ce95]" started-at="2026-09-26T17:25:42 IST" name="setup" finished-at="2026-09-26T17:26:58 IST" duration-ms="76727" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[firefox]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+        <test-method signature="amazonNavigationTest()[pri:0, instance:Devops_Assignment.Devops_Assignment.AmazonTest@6b81ce95]" started-at="2026-09-26T17:26:58 IST" name="amazonNavigationTest" finished-at="2026-09-26T17:27:06 IST" duration-ms="7774" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- amazonNavigationTest -->
+        <test-method is-config="true" signature="tearDown()[pri:0, instance:Devops_Assignment.Devops_Assignment.AmazonTest@6b81ce95]" started-at="2026-09-26T17:27:06 IST" name="tearDown" finished-at="2026-09-26T17:27:09 IST" duration-ms="3135" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- Devops_Assignment.Devops_Assignment.AmazonTest -->
+    </test> <!-- Firefox Test -->
   </suite> <!-- Amazon Cross Browser Suite -->
 </testng-results>

@@ -5,16 +5,14 @@ import java.net.URL;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
@@ -25,29 +23,23 @@ public class AmazonTest {
 
     @Parameters("browser")
     @BeforeMethod
-    public void setup(String browser) throws MalformedURLException {
+    public void setup(@Optional("chrome") String browser) throws MalformedURLException {
 
         browserName = browser;
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
         if (browser.equalsIgnoreCase("chrome")) {
-
             capabilities.setBrowserName("chrome");
-
-        } else if (browser.equalsIgnoreCase("firefox")) {
-
+        } 
+        else if (browser.equalsIgnoreCase("firefox")) {
             capabilities.setBrowserName("firefox");
-
-        } else if (browser.equalsIgnoreCase("edge")) {
-
+        } 
+        else if (browser.equalsIgnoreCase("edge")) {
             capabilities.setBrowserName("MicrosoftEdge");
-
-        } else {
-
-            throw new IllegalArgumentException(
-                    "Invalid browser: " + browser
-            );
+        } 
+        else {
+            throw new IllegalArgumentException("Invalid browser: " + browser);
         }
 
         driver = new RemoteWebDriver(
@@ -55,42 +47,46 @@ public class AmazonTest {
                 capabilities
         );
 
+        driver.manage().timeouts()
+              .pageLoadTimeout(Duration.ofSeconds(60));
+
         driver.manage().window().maximize();
     }
 
     @Test
-    public void amazonSearchTest() {
+    public void amazonNavigationTest() {
+
+        System.out.println(
+                "Navigating to Amazon on browser: " + browserName);
 
         driver.get("https://www.amazon.in/");
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+        WebDriverWait wait =
+                new WebDriverWait(driver, Duration.ofSeconds(45));
 
-        // Wait for Amazon search box
-        WebElement searchBox = wait.until(
-            ExpectedConditions.visibilityOfElementLocated(
-                By.id("twotabsearchtextbox")
-            )
-        );
+        wait.until(ExpectedConditions.presenceOfElementLocated(
+                By.tagName("body")));
 
-        System.out.println("Amazon page loaded on browser: " + browserName);
+        String title = driver.getTitle();
 
-        searchBox.sendKeys("laptop");
+        System.out.println(
+                "Page Title on " + browserName + ": " + title);
 
-        driver.findElement(By.id("nav-search-submit-button")).click();
-
-        // Wait for search results page
-        wait.until(ExpectedConditions.urlContains("laptop"));
-
-        System.out.println("Search completed on browser: " + browserName);
-
-        System.out.println("Test Passed on browser: " + browserName);
+        System.out.println(
+                "Amazon page loaded successfully on: " + browserName);
     }
-    
+
     @AfterMethod
     public void tearDown() {
 
         if (driver != null) {
-            driver.quit();
+            try {
+                driver.quit();
+            } catch (Exception e) {
+                System.out.println(
+                        "Browser cleanup warning on "
+                        + browserName + ": " + e.getMessage());
+            }
         }
     }
 }

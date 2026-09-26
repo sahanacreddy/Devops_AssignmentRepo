@@ -5,8 +5,8 @@
     <classes>
       <class name="Devops_Assignment.Devops_Assignment.AmazonTest">
         <methods>
+          <include name="amazonNavigationTest"/>
           <include name="tearDown"/>
-          <include name="amazonSearchTest"/>
           <include name="setup"/>
         </methods>
       </class> <!-- Devops_Assignment.Devops_Assignment.AmazonTest -->
