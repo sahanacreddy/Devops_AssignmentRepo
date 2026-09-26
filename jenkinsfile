@@ -1,6 +1,6 @@
 pipeline {
     agent any
-    
+
     tools {
         maven 'Maven'
     }
@@ -28,7 +28,7 @@ pipeline {
 
         stage('Run Selenium Tests') {
             steps {
-                bat 'mvn clean test'
+                bat 'mvn clean test -Dsurefire.suiteXmlFiles=testng.xml'
             }
         }
     }
