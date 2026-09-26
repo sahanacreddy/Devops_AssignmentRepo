@@ -1,5 +1,4 @@
 pipeline {
-
     agent any
 
     stages {
@@ -7,6 +6,13 @@ pipeline {
         stage('Checkout') {
             steps {
                 checkout scm
+            }
+        }
+
+        stage('Check Docker') {
+            steps {
+                bat 'docker --version'
+                bat 'docker compose version'
             }
         }
 
@@ -24,7 +30,6 @@ pipeline {
     }
 
     post {
-
         always {
             bat 'docker compose down'
             junit 'target/surefire-reports/*.xml'
