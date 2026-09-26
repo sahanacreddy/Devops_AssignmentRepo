@@ -61,15 +61,16 @@ public class AmazonTest {
     @Test
     public void amazonSearchTest() {
 
-    	driver.get("https://www.amazon.in/");
+        driver.get("https://www.amazon.in/");
 
-    	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(45));
-    	wait.until(d -> ((JavascriptExecutor) d)
-    	        .executeScript("return document.readyState").equals("complete"));
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
 
-    	WebElement searchBox = wait.until(
-    	    ExpectedConditions.visibilityOfElementLocated(By.id("twotabsearchtextbox"))
-    	);
+        // Wait for Amazon search box
+        WebElement searchBox = wait.until(
+            ExpectedConditions.visibilityOfElementLocated(
+                By.id("twotabsearchtextbox")
+            )
+        );
 
         System.out.println("Amazon page loaded on browser: " + browserName);
 
@@ -81,11 +82,6 @@ public class AmazonTest {
         wait.until(ExpectedConditions.urlContains("laptop"));
 
         System.out.println("Search completed on browser: " + browserName);
-
-        Assert.assertTrue(
-            driver.getCurrentUrl().toLowerCase().contains("laptop"),
-            "Amazon search results were not displayed"
-        );
 
         System.out.println("Test Passed on browser: " + browserName);
     }
