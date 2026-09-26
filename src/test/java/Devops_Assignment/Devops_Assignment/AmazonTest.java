@@ -5,6 +5,7 @@ import java.net.URL;
 import java.time.Duration;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -60,16 +61,15 @@ public class AmazonTest {
     @Test
     public void amazonSearchTest() {
 
-        driver.get("https://www.amazon.in/");
+    	driver.get("https://www.amazon.in/");
 
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(30));
+    	WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(45));
+    	wait.until(d -> ((JavascriptExecutor) d)
+    	        .executeScript("return document.readyState").equals("complete"));
 
-        // Wait for Amazon search box
-        WebElement searchBox = wait.until(
-            ExpectedConditions.visibilityOfElementLocated(
-                By.id("twotabsearchtextbox")
-            )
-        );
+    	WebElement searchBox = wait.until(
+    	    ExpectedConditions.visibilityOfElementLocated(By.id("twotabsearchtextbox"))
+    	);
 
         System.out.println("Amazon page loaded on browser: " + browserName);
 

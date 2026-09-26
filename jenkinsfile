@@ -23,8 +23,19 @@ pipeline {
         stage('Start Selenium Grid') {
     steps {
         bat '"C:\\Users\\vijay\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker-compose.exe" up -d'
-        powershell 'Start-Sleep -Seconds 30'
+        powershell '''
+            $ready = $false
+            for ($i = 0; $i -lt 30; $i++) {
+                try {
+                    $resp = Invoke-RestMethod -Uri "http://localhost:4444/status" -TimeoutSec 3
+                    if ($resp.value.ready -eq $true) { $ready = $true; break }
+                } catch {}
+                Start-Sleep -Seconds 2
+            }
+            if (-not $ready) { throw "Selenium Grid did not report ready in time" }
+        '''
     }
+}
 }
 
         stage('Run Selenium Tests') {
