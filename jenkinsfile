@@ -23,7 +23,7 @@ pipeline {
         stage('Start Selenium Grid') {
     steps {
         bat '"C:\\Users\\vijay\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker-compose.exe" up -d'
-        bat 'timeout /t 15 /nobreak'
+        powershell 'Start-Sleep -Seconds 30'
     }
 }
 
