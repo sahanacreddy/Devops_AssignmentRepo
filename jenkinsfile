@@ -1,0 +1,41 @@
+pipeline {
+
+    agent any
+
+    stages {
+
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Start Selenium Grid') {
+            steps {
+                bat 'docker compose up -d'
+            }
+        }
+
+        stage('Run Selenium Tests') {
+            steps {
+                bat 'mvn clean test'
+            }
+        }
+    }
+
+    post {
+
+        always {
+            bat 'docker compose down'
+            junit 'target/surefire-reports/*.xml'
+        }
+
+        success {
+            echo 'Automation tests PASSED'
+        }
+
+        failure {
+            echo 'Automation tests FAILED'
+        }
+    }
+}
